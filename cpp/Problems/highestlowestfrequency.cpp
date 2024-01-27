@@ -1,9 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#include<bits/stdc++.h>
-using namespace std;
-
 vector<int> getFrequencies(vector<int>& v) {
     map<int,int>m;
     set<int>s(v.begin(),v.end());

@@ -1,28 +1,25 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool comp(pair<char,int>p1,pair<char,int>p2){
-  if(p1.second<p2.second){
-    return false;
-  }else if(p1.second>p2.second){
-    return true;
-  }else{
-    if(p1.first<p2.first){
-      return true;
-    }else{
-      return false;
-    }
-  }
+bool comp(pair<char,int>v1,pair<char,int>v2){
+  return v1.second>v2.second;
 }
 
 int main(){
-  string s="leetcode";
-  set<int>s1(s.begin(),s.end());
+  string s="tree";
+  set<char>s1(s.begin(),s.end());
   map<char,int>m;
-  for(auto i:s1){
+  for(auto i:s){
     m[i]=count(s.begin(),s.end(),i);
   }
-  for(auto i:m){
-    cout<<i.first<<" "<<i.second<<endl;
+  vector<pair<char,int>>vp(m.begin(),m.end());
+  sort(vp.begin(),vp.end(),comp);
+  for(int i=0;i<vp.size();i++){
+    cout<<vp[i].first<<" "<<vp[i].second<<endl;
   }
+  string s2="";
+  for(int i=0;i<vp.size();i++){
+    s2=s2+string(vp[i].first,vp[i].second);
+  }
+  cout<<s2<<endl;
 }
